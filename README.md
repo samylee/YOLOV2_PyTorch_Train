@@ -62,7 +62,7 @@ python voc_eval.py
 
 ## 复现重点
 - `ours`采用`adam`优化器，而`darknet`采用`sgd`
-- 完全复现`darknet`的`loss`计算方式
+- 完全复现`darknet-region_layer`的`loss`计算方式
   <br>1. 负样本：每个`grid_cell`的5个`bbox`与所有`target`的`iou<0.6`，且不属于正样本`bbox`的下标
   <br>2. 正样本：每个`grid_cell`的5个`anchors`与`targets`最大`iou`的下标，注意5个`anchors`可以分别预测多个`targets`，并不是只有一个
   <br>**3. 正样本`confidence`的`target`为`pred`与`target`的`iou`**
